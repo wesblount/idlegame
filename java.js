@@ -2,9 +2,27 @@ var point = 0;
 var pointPerSecond = 0;
 var auto1Cost = 0;
 var auto1s = 0;
-var save = {
-  points: point,
-  auto1s: auto1s,
+
+function save() {
+  var save = {
+    points: point,
+    auto1s: auto1s,
+    auto1Cost: auto1Cost,
+    pointPerSecond: pointPerSecond,
+  }
+  localStorage.setItem("save",JSON.stringify(save));
+}
+
+function load() {
+  var savegame = JSON.parse(localStorage.getItem("save"));
+  if (typeof savegame.points !== "undefined") points = savegame.points;
+  if (typeof savegame.auto1s !== "undefined") auto1s = savegame.auto1s;
+  if (typeof savegame.auto1Cost !== "undefined") auto1Cost = savegame.auto1Cost;
+  if (typeof savegame.pointPerSecond !== "undefined") pointPerSecond = savegame.pointPerSecond;
+}
+
+function delSave() {
+  localStorage.removeItem("save")
 }
 
 // function add() {
@@ -15,6 +33,7 @@ var save = {
 setInterval(function() {
   point += pointPerSecond;
   document.getElementById("showPoint").innerText = point;
+  save()
 }, 1000)
 
 function buyAuto1() {

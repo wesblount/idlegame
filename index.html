@@ -10,7 +10,7 @@
         </script>
   <title>Idle Game</title>
     </head>
-    <body>
+    <body onload="load()">
         <div id="content">
             <div id="headerbox">
                 <h1>Idle Game</h1>
@@ -27,6 +27,9 @@
                     <p id="point">Points : <span id="showPoint">0</span></p>
                     <p id="pps">Points Per Second : <span id="showpsec">0</span></p>
                 </div>
+                <button onclick="save()">Save Game</button>
+                <button onclick="load()">Load Save</button>
+                <button onclick="delSave()">Delete Save</button>
         </div>
     </body>
 </html> 
