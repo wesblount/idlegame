@@ -15,7 +15,7 @@ function save() {
 
 function load() {
   var savegame = JSON.parse(localStorage.getItem("save"));
-  if (typeof savegame.points !== "undefined") points = savegame.points;
+  if (typeof savegame.points !== "undefined") point = savegame.points;
   if (typeof savegame.auto1s !== "undefined") auto1s = savegame.auto1s;
   if (typeof savegame.auto1Cost !== "undefined") auto1Cost = savegame.auto1Cost;
   if (typeof savegame.pointPerSecond !== "undefined") pointPerSecond = savegame.pointPerSecond;
